@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'io.ssstoyanov'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.deeplearning4j:deeplearning4j-core:+'
+    implementation 'org.deeplearning4j:deeplearning4j-modelimport:+'
+    implementation 'org.nd4j:nd4j-native-platform:+'
+    implementation 'org.nd4j:nd4j-native:+'
+    implementation 'org.slf4j:slf4j-simple:+'
+
+}
