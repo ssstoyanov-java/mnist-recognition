@@ -15,5 +15,4 @@ dependencies {
     implementation 'org.nd4j:nd4j-native-platform:+'
     implementation 'org.nd4j:nd4j-native:+'
     implementation 'org.slf4j:slf4j-simple:+'
-
 }
