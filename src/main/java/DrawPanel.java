@@ -10,62 +10,62 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
     private boolean p;
     private boolean painting;
     private int px, py;
-    private double[][] data;
-    private final Random rnd = new Random();
+    private final double[][] data;
 
     public DrawPanel() {
         setPreferredSize(new Dimension(280, 280));
         setBounds(10, 10, 280, 280);
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        p = false;
-        painting = false;
-        px = 0;
-        py = 0;
-        data = new double[280][280];
+        this.p = false;
+        this.painting = false;
+        this.px = 0;
+        this.py = 0;
+        this.data = new double[280][280];
+        Random rnd = new Random();
         for (int i = 0; i < 280; i++) for (int j = 0; j < 280; j++) data[i][j] = rnd.nextDouble();
         addMouseListener(this);
         addMouseMotionListener(this);
     }
 
     public double[][] getData() {
-        return data;
+        return this.data;
     }
 
     public void mousePressed(MouseEvent e) {
-        p = true;
-        painting = true;
+        this.p = true;
+        this.painting = true;
     }
 
     public void mouseDragged(MouseEvent e) {
         int x = e.getX(), y = e.getY();
         Graphics graphics = getGraphics();
         graphics.setColor(Color.BLACK);
-        if (painting && p) {
+        if (this.painting && this.p) {
             graphics.drawLine(x, y, x, y);
-            p = false;
-        } else if (painting) {
-            for (int i = -10; i <= 10; i++) {
-                graphics.drawLine(px + i, py + i, x + i, y + i);
-                graphics.drawLine(px - i, py + i, x + i, y + i);
-                graphics.drawLine(px + i, py - i, x + i, y + i);
-                graphics.drawLine(px - i, py - i, x - i, y - i);
-                data[x + i][y + i] = 255 - i * i;
-                data[x - i][y + i] = 255 - i * i;
-                data[x + i][y - i] = 255 - i * i;
-                data[x - i][y - i] = 255 - i * i;
+            this.p = false;
+        } else if (this.painting) {
+            for (int i = -12; i <= 12; i++) {
+                graphics.drawLine(this.px + i, this.py + i, x + i, y + i);
+                graphics.drawLine(this.px - i, this.py + i, x + i, y + i);
+                graphics.drawLine(this.px + i, this.py - i, x + i, y + i);
+                graphics.drawLine(this.px - i, this.py - i, x - i, y - i);
+                this.data[x + i][y + i] = 255 - i * i;
+                this.data[x - i][y + i] = 255 - i * i;
+                this.data[x + i][y - i] = 255 - i * i;
+                this.data[x - i][y - i] = 255 - i * i;
             }
         }
-        px = x;
-        py = y;
+        this.px = x;
+        this.py = y;
     }
 
     public void mouseExited(MouseEvent e) {
-        painting = false;
+        this.painting = false;
     }
 
     public void mouseEntered(MouseEvent e) {
-        painting = true;
+        this.painting = true;
     }
 
     public void mouseMoved(MouseEvent e) {

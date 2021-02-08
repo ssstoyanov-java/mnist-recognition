@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class RecognitionWindow extends JFrame {
 
     private final JLabel lblDigit;
@@ -20,15 +19,15 @@ public class RecognitionWindow extends JFrame {
         btnReset.setBounds(125, 225, 100, 25);
         btnReset.setFocusPainted(false);
         btnReset.addActionListener(new ResetButtonListener());
-        lblDigit = new JLabel("");
-        lblDigit.setFont(new Font("Verdana", Font.PLAIN, 100));
-        lblDigit.setBounds(140, 100, 150, 100);
+        this.lblDigit = new JLabel("");
+        this.lblDigit.setFont(new Font("Verdana", Font.PLAIN, 100));
+        this.lblDigit.setBounds(140, 100, 150, 100);
         getContentPane().add(btnReset);
-        getContentPane().add(lblDigit);
+        getContentPane().add(this.lblDigit);
     }
 
     public void loadImage() {
-        this.data = Shared.drawPanel.getData();
+        this.data = Shared.getDrawPanel().getData();
     }
 
     public void recognize() {
@@ -38,7 +37,7 @@ public class RecognitionWindow extends JFrame {
     private class ResetButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             dispose();
-            Shared.drawWindow = new DrawWindow();
+            Shared.setDrawWindow(new DrawWindow());
         }
     }
 
