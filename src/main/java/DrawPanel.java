@@ -45,15 +45,15 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
             graphics.drawLine(x, y, x, y);
             this.p = false;
         } else if (this.painting) {
-            for (int i = -13; i <= 13; i++) {
+            for (int i = -10; i <= 10; i++) {
                 graphics.drawLine(this.px + i, this.py + i, x + i, y + i);
                 graphics.drawLine(this.px - i, this.py + i, x + i, y + i);
                 graphics.drawLine(this.px + i, this.py - i, x + i, y + i);
                 graphics.drawLine(this.px - i, this.py - i, x - i, y - i);
-                this.data[x + i][y + i] = 255 - i * i;
-                this.data[x - i][y + i] = 255 - i * i;
-                this.data[x + i][y - i] = 255 - i * i;
-                this.data[x - i][y - i] = 255 - i * i;
+                this.data[x + i][y + i] = 250 - i * i + 2 * i;
+                this.data[x - i][y + i] = 250 - i * i + 2 * i;
+                this.data[x + i][y - i] = 250 - i * i + 2 * i;
+                this.data[x - i][y - i] = 250 - i * i + 2 * i;
             }
         }
         this.px = x;
