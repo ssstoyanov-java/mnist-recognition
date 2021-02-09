@@ -12,3 +12,11 @@ gradle customFatJar
 Модель обучена на тестовом датасете MNIST
 
 Исходники: https://github.com/ssstoyanov-hse/mnist
+
+Картинки:
+
+![image1](images/image1.png)
+
+![image1](images/image2.png)
+
+![image1](images/image3.png)
