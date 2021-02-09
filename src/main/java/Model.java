@@ -4,7 +4,10 @@ import org.deeplearning4j.nn.modelimport.keras.exceptions.UnsupportedKerasConfig
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.nd4j.linalg.cpu.nativecpu.NDArray;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class Model {
 
@@ -25,8 +28,7 @@ public class Model {
     private Model() {
         try {
             this.model = KerasModelImport.
-                    importKerasSequentialModelAndWeights(
-                            "/home/stanislav/IdeaProjects/mnist-recognition/src/main/resources/model/model.h5");
+                    importKerasSequentialModelAndWeights(getClass().getResourceAsStream("/model.h5"), true);
         } catch (InvalidKerasConfigurationException | UnsupportedKerasConfigurationException | IOException e) {
             e.printStackTrace();
             System.exit(1);
